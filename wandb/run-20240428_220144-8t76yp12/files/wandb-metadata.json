@@ -1,0 +1,149 @@
+{
+    "os": "Linux-6.5.0-27-generic-x86_64-with-glibc2.35",
+    "python": "3.9.12",
+    "heartbeatAt": "2024-04-28T12:01:48.010767",
+    "startedAt": "2024-04-28T12:01:44.394998",
+    "docker": null,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "/home/linwei/calibration-feature/train.py",
+    "codePath": "train.py",
+    "git": {
+        "remote": "https://github.com/Linwei94/calibration-feature.git",
+        "commit": "0051e3a416a10880d459df9795fecf4f965674c5"
+    },
+    "email": "ltao0358@uni.sydney.edu.au",
+    "root": "/home/linwei/calibration-feature",
+    "host": "Linweis-Lab2",
+    "username": "linwei",
+    "executable": "/home/linwei/anaconda3/bin/python",
+    "cpu_count": 10,
+    "cpu_count_logical": 20,
+    "cpu_freq": {
+        "current": 2311.5431499999995,
+        "min": 800.0,
+        "max": 5200.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 2693.44,
+            "min": 800.0,
+            "max": 5200.0
+        },
+        {
+            "current": 800.0,
+            "min": 800.0,
+            "max": 5200.0
+        },
+        {
+            "current": 800.0,
+            "min": 800.0,
+            "max": 5200.0
+        },
+        {
+            "current": 800.0,
+            "min": 800.0,
+            "max": 5200.0
+        },
+        {
+            "current": 800.0,
+            "min": 800.0,
+            "max": 5200.0
+        },
+        {
+            "current": 4794.558,
+            "min": 800.0,
+            "max": 5200.0
+        },
+        {
+            "current": 2795.451,
+            "min": 800.0,
+            "max": 5200.0
+        },
+        {
+            "current": 800.0,
+            "min": 800.0,
+            "max": 5200.0
+        },
+        {
+            "current": 4742.968,
+            "min": 800.0,
+            "max": 5200.0
+        },
+        {
+            "current": 4898.585,
+            "min": 800.0,
+            "max": 5200.0
+        },
+        {
+            "current": 800.0,
+            "min": 800.0,
+            "max": 5200.0
+        },
+        {
+            "current": 4880.358,
+            "min": 800.0,
+            "max": 5200.0
+        },
+        {
+            "current": 4978.302,
+            "min": 800.0,
+            "max": 5200.0
+        },
+        {
+            "current": 2726.823,
+            "min": 800.0,
+            "max": 5200.0
+        },
+        {
+            "current": 4920.378,
+            "min": 800.0,
+            "max": 5200.0
+        },
+        {
+            "current": 800.0,
+            "min": 800.0,
+            "max": 5200.0
+        },
+        {
+            "current": 800.0,
+            "min": 800.0,
+            "max": 5200.0
+        },
+        {
+            "current": 800.0,
+            "min": 800.0,
+            "max": 5200.0
+        },
+        {
+            "current": 800.0,
+            "min": 800.0,
+            "max": 5200.0
+        },
+        {
+            "current": 800.0,
+            "min": 800.0,
+            "max": 5200.0
+        }
+    ],
+    "disk": {
+        "total": 915.3213348388672,
+        "used": 868.0862922668457
+    },
+    "gpu": "NVIDIA GeForce RTX 3090",
+    "gpu_count": 2,
+    "gpu_devices": [
+        {
+            "name": "NVIDIA GeForce RTX 3090",
+            "memory_total": 25769803776
+        },
+        {
+            "name": "NVIDIA GeForce RTX 3090",
+            "memory_total": 25769803776
+        }
+    ],
+    "memory": {
+        "total": 62.65476989746094
+    }
+}

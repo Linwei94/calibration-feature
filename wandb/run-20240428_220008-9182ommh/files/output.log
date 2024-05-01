@@ -1,0 +1,92 @@
+CUDA set: True
+Files already downloaded and verified
+Files already downloaded and verified
+Train Epoch: 0 [0/45056 (0%)]	Loss: 302.263794
+Train Epoch: 0 [1280/45056 (3%)]	Loss: 304.197418
+/home/linwei/anaconda3/lib/python3.9/site-packages/torch/optim/lr_scheduler.py:136: UserWarning: Detected call of `lr_scheduler.step()` before `optimizer.step()`. In PyTorch 1.1.0 and later, you should call them in the opposite order: `optimizer.step()` before `lr_scheduler.step()`.  Failure to do this will result in PyTorch skipping the first value of the learning rate schedule. See more details at https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate
+  warnings.warn("Detected call of `lr_scheduler.step()` before `optimizer.step()`. "
+/home/linwei/calibration-feature/train_utils.py:56: UserWarning: torch.nn.utils.clip_grad_norm is now deprecated in favor of torch.nn.utils.clip_grad_norm_.
+  torch.nn.utils.clip_grad_norm(model.parameters(), 2)
+Train Epoch: 0 [2560/45056 (6%)]	Loss: 473.768524
+Train Epoch: 0 [3840/45056 (9%)]	Loss: 353.851013
+Train Epoch: 0 [5120/45056 (11%)]	Loss: 335.040833
+Train Epoch: 0 [6400/45056 (14%)]	Loss: 376.296234
+Train Epoch: 0 [7680/45056 (17%)]	Loss: 369.240173
+Train Epoch: 0 [8960/45056 (20%)]	Loss: 281.936371
+Train Epoch: 0 [10240/45056 (23%)]	Loss: 292.844147
+Train Epoch: 0 [11520/45056 (26%)]	Loss: 282.464844
+Train Epoch: 0 [12800/45056 (28%)]	Loss: 263.155701
+Train Epoch: 0 [14080/45056 (31%)]	Loss: 235.594727
+Train Epoch: 0 [15360/45056 (34%)]	Loss: 252.432770
+Train Epoch: 0 [16640/45056 (37%)]	Loss: 254.667404
+Train Epoch: 0 [17920/45056 (40%)]	Loss: 248.988800
+Train Epoch: 0 [19200/45056 (43%)]	Loss: 270.465057
+Train Epoch: 0 [20480/45056 (45%)]	Loss: 269.545410
+Train Epoch: 0 [21760/45056 (48%)]	Loss: 227.989243
+Train Epoch: 0 [23040/45056 (51%)]	Loss: 239.936813
+Train Epoch: 0 [24320/45056 (54%)]	Loss: 258.146698
+Train Epoch: 0 [25600/45056 (57%)]	Loss: 239.466110
+Train Epoch: 0 [26880/45056 (60%)]	Loss: 228.468536
+Train Epoch: 0 [28160/45056 (62%)]	Loss: 228.014313
+Train Epoch: 0 [29440/45056 (65%)]	Loss: 250.251678
+Train Epoch: 0 [30720/45056 (68%)]	Loss: 203.310547
+Train Epoch: 0 [32000/45056 (71%)]	Loss: 218.821152
+Train Epoch: 0 [33280/45056 (74%)]	Loss: 218.467026
+Train Epoch: 0 [34560/45056 (77%)]	Loss: 198.720886
+Train Epoch: 0 [35840/45056 (80%)]	Loss: 201.526367
+Train Epoch: 0 [37120/45056 (82%)]	Loss: 201.827530
+Train Epoch: 0 [38400/45056 (85%)]	Loss: 215.360016
+Train Epoch: 0 [39680/45056 (88%)]	Loss: 190.944183
+Train Epoch: 0 [40960/45056 (91%)]	Loss: 193.866287
+Train Epoch: 0 [42240/45056 (94%)]	Loss: 208.113388
+Train Epoch: 0 [43520/45056 (97%)]	Loss: 236.143463
+Train Epoch: 0 [44800/45056 (99%)]	Loss: 203.985138
+====> Epoch: 0 Average loss: 2.0072
+/home/linwei/calibration-feature/train_utils.py:56: UserWarning: torch.nn.utils.clip_grad_norm is now deprecated in favor of torch.nn.utils.clip_grad_norm_.
+  torch.nn.utils.clip_grad_norm(model.parameters(), 2)
+Epoch: 1/200  Origin test Acc: 0.3817  Origin Pre test ECE: 0.0813380554318428
+Train Epoch: 1 [0/45056 (0%)]	Loss: 210.763016
+Train Epoch: 1 [1280/45056 (3%)]	Loss: 195.791763
+Train Epoch: 1 [2560/45056 (6%)]	Loss: 195.247864
+Train Epoch: 1 [3840/45056 (9%)]	Loss: 196.954315
+Train Epoch: 1 [5120/45056 (11%)]	Loss: 189.616882
+Train Epoch: 1 [6400/45056 (14%)]	Loss: 196.401672
+Train Epoch: 1 [7680/45056 (17%)]	Loss: 192.458496
+Train Epoch: 1 [8960/45056 (20%)]	Loss: 176.577499
+Train Epoch: 1 [10240/45056 (23%)]	Loss: 178.150406
+Train Epoch: 1 [11520/45056 (26%)]	Loss: 191.074371
+Train Epoch: 1 [12800/45056 (28%)]	Loss: 175.906097
+Train Epoch: 1 [14080/45056 (31%)]	Loss: 165.159714
+Train Epoch: 1 [15360/45056 (34%)]	Loss: 203.405106
+Train Epoch: 1 [16640/45056 (37%)]	Loss: 183.507843
+Train Epoch: 1 [17920/45056 (40%)]	Loss: 155.566132
+Train Epoch: 1 [19200/45056 (43%)]	Loss: 184.218369
+Train Epoch: 1 [20480/45056 (45%)]	Loss: 175.993851
+Train Epoch: 1 [21760/45056 (48%)]	Loss: 195.830643
+Train Epoch: 1 [23040/45056 (51%)]	Loss: 154.805420
+Train Epoch: 1 [24320/45056 (54%)]	Loss: 177.988464
+Train Epoch: 1 [25600/45056 (57%)]	Loss: 224.883011
+Train Epoch: 1 [26880/45056 (60%)]	Loss: 170.680878
+Train Epoch: 1 [28160/45056 (62%)]	Loss: 175.892227
+Train Epoch: 1 [29440/45056 (65%)]	Loss: 143.952271
+Train Epoch: 1 [30720/45056 (68%)]	Loss: 141.871323
+Train Epoch: 1 [32000/45056 (71%)]	Loss: 177.856400
+Train Epoch: 1 [33280/45056 (74%)]	Loss: 140.638351
+Train Epoch: 1 [34560/45056 (77%)]	Loss: 136.571884
+Train Epoch: 1 [35840/45056 (80%)]	Loss: 133.394348
+Train Epoch: 1 [37120/45056 (82%)]	Loss: 145.820358
+Train Epoch: 1 [38400/45056 (85%)]	Loss: 167.591339
+Train Epoch: 1 [39680/45056 (88%)]	Loss: 172.147354
+Train Epoch: 1 [40960/45056 (91%)]	Loss: 157.895126
+Train Epoch: 1 [42240/45056 (94%)]	Loss: 161.919510
+Train Epoch: 1 [43520/45056 (97%)]	Loss: 159.627731
+Train Epoch: 1 [44800/45056 (99%)]	Loss: 163.270920
+====> Epoch: 1 Average loss: 1.3348
+Traceback (most recent call last):
+  File "/home/linwei/calibration-feature/train.py", line 304, in <module>
+    ori_val_acc, ori_pre_val_nll, ori_pre_val_ece, ori_test_acc, ori_pre_test_ece, ori_pre_test_adaece, ori_pre_test_cece, ori_pre_test_nll, ori_T_opt, ori_post_test_ece, ori_post_test_adaece, ori_post_test_cece, ori_post_test_nll = test_classification_net(net, test_loader, val_loader, device)
+  File "/home/linwei/calibration-feature/utils/metrics.py", line 171, in test_classification_net
+    logits, labels = get_logits_labels(test_loader, model)
+  File "/home/linwei/calibration-feature/utils/metrics.py", line 313, in get_logits_labels
+    data = data.cuda()
+KeyboardInterrupt

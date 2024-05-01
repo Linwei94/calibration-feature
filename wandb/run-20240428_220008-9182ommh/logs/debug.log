@@ -1,0 +1,26 @@
+2024-04-28 22:00:08,775 INFO    MainThread:1483981 [wandb_setup.py:_flush():76] Configure stats pid to 1483981
+2024-04-28 22:00:08,776 INFO    MainThread:1483981 [wandb_setup.py:_flush():76] Loading settings from /home/linwei/.config/wandb/settings
+2024-04-28 22:00:08,776 INFO    MainThread:1483981 [wandb_setup.py:_flush():76] Loading settings from /home/linwei/calibration-feature/wandb/settings
+2024-04-28 22:00:08,776 INFO    MainThread:1483981 [wandb_setup.py:_flush():76] Loading settings from environment variables: {}
+2024-04-28 22:00:08,776 INFO    MainThread:1483981 [wandb_setup.py:_flush():76] Applying setup settings: {'_disable_service': False}
+2024-04-28 22:00:08,776 INFO    MainThread:1483981 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program_relpath': 'train.py', 'program': '/home/linwei/calibration-feature/train.py'}
+2024-04-28 22:00:08,776 INFO    MainThread:1483981 [wandb_init.py:_log_setup():507] Logging user logs to /home/linwei/calibration-feature/wandb/run-20240428_220008-9182ommh/logs/debug.log
+2024-04-28 22:00:08,777 INFO    MainThread:1483981 [wandb_init.py:_log_setup():508] Logging internal logs to /home/linwei/calibration-feature/wandb/run-20240428_220008-9182ommh/logs/debug-internal.log
+2024-04-28 22:00:08,777 INFO    MainThread:1483981 [wandb_init.py:init():547] calling init triggers
+2024-04-28 22:00:08,777 INFO    MainThread:1483981 [wandb_init.py:init():554] wandb.init called with sweep_config: {}
+config: {'dataset': 'cifar10', 'dataset_root': './', 'data_aug': True, 'gpu': True, 'load': False, 'train_batch_size': 128, 'test_batch_size': 128, 'epoch': 200, 'learning_rate': 0.1, 'momentum': 0.9, 'nesterov': False, 'weight_decay': 0.0005, 'optimiser': 'sgd', 'loss_function': 'cross_entropy', 'loss_mean': False, 'gamma': 1.0, 'gamma2': 1.0, 'gamma3': 1.0, 'lamda': 1.0, 'gamma_schedule': 0, 'gamma_schedule_step1': 100, 'gamma_schedule_step2': 250, 'log_interval': 50, 'save_interval': 50, 'saved_model_name': 'resnet50_cross_entropy_350.model', 'save_loc': './', 'model_name': None, 'load_loc': './', 'model': 'resnet50', 'first_milestone': 100, 'second_milestone': 150, 'name': ''}
+2024-04-28 22:00:08,777 INFO    MainThread:1483981 [wandb_init.py:init():595] starting backend
+2024-04-28 22:00:08,778 INFO    MainThread:1483981 [wandb_init.py:init():599] setting up manager
+2024-04-28 22:00:08,784 INFO    MainThread:1483981 [backend.py:_multiprocessing_setup():106] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2024-04-28 22:00:08,795 INFO    MainThread:1483981 [wandb_init.py:init():605] backend started and connected
+2024-04-28 22:00:08,797 INFO    MainThread:1483981 [wandb_init.py:init():695] updated telemetry
+2024-04-28 22:00:08,806 INFO    MainThread:1483981 [wandb_init.py:init():732] communicating run to backend with 60.0 second timeout
+2024-04-28 22:00:10,457 INFO    MainThread:1483981 [wandb_run.py:_on_init():2176] communicating current version
+2024-04-28 22:00:10,476 INFO    MainThread:1483981 [wandb_run.py:_on_init():2185] got version response upgrade_message: "wandb version 0.16.6 is available!  To upgrade, please run:\n $ pip install wandb --upgrade"
+
+2024-04-28 22:00:10,476 INFO    MainThread:1483981 [wandb_init.py:init():782] starting run threads in backend
+2024-04-28 22:00:17,015 INFO    MainThread:1483981 [wandb_run.py:_console_start():2157] atexit reg
+2024-04-28 22:00:17,015 INFO    MainThread:1483981 [wandb_run.py:_redirect():2012] redirect: SettingsConsole.WRAP_RAW
+2024-04-28 22:00:17,015 INFO    MainThread:1483981 [wandb_run.py:_redirect():2077] Wrapping output streams.
+2024-04-28 22:00:17,015 INFO    MainThread:1483981 [wandb_run.py:_redirect():2102] Redirects installed.
+2024-04-28 22:00:17,015 INFO    MainThread:1483981 [wandb_init.py:init():824] run started, returning control to user process
