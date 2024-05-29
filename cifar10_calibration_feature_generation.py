@@ -33,30 +33,28 @@ pretrained_weights = {"ce":"weights/cifar10/resnet50_cross_entropy_350.model",
                         "fl":"weights/cifar10/resnet50_focal_loss_gamma_3.0_350.model",
                         "ls":"weights/cifar10/resnet50_cross_entropy_smoothed_smoothing_0.05_350.model"}
 # generate z_calibrated
-def calibrate_feature(model, z, x_feature, eps=0.5, alpha=0.5/5, iters=7):
-    z = z.to(device)
-    x_feature = x_feature.detach().to(device)
+def calibrate_feature(model, x, goal_feature, alpha=0.5/5, n_iters=7):
+    x = x.to(device)
+    x.requires_grad = True
+    goal_feature = goal_feature.detach().to(device)
+    delta = torch.zeros_like(x)
+    delta.requires_grad = False
     for i in range(n_iters):
-        z.requires_grad = True
-        logit, z_feature = model(z)
+        _, x_feature = model(x + delta, return_feature=True)
         model.zero_grad()
-        z.grad = None
+        x.grad = None
 
-        cost = torch.norm(z_feature - x_feature)
+        cost = torch.norm(x_feature - goal_feature)
         cost.backward()
         
         
-        norm_grad = z.grad / (torch.norm(z.grad) + 1e-10)
-        adv_z = z - alpha*norm_grad
-        
-        # pgd attack code
-        # adv_z = z - alpha*z.grad.sign()
-
-
-        z = torch.clamp(adv_z, min=0, max=1).detach_()
+        norm_grad = torch.norm(x.grad)
+        delta = delta - alpha*x.grad / (norm_grad + 1e-10) # normalized gradient step
+        # clip X+delta to [0,1]
+        delta = torch.clamp(delta, -x, 1-x).detach_()
         if i % 100 == 0:
             print(f'Iter {i}, cost: {cost.item()}')
-    return z
+    return x + delta
 
 # visualize as a cifar10 imgae
 def visualize(x, title, name):
@@ -122,8 +120,8 @@ for i, (x,y) in enumerate(train_loader):
     label_z = torch.tensor(label_z)
     z = z.to(device)
     x = x.to(device)
-    _, x_feature = model(x)
-    z_calibrated = calibrate_feature(model, z, x_feature, n_iters)
+    _, x_feature = model(x, return_feature=True)
+    z_calibrated = calibrate_feature(model, z, x_feature, n_iters=n_iters)
     
     xs.append(x.detach_())
     ys.append(y.detach_())
@@ -132,16 +130,16 @@ for i, (x,y) in enumerate(train_loader):
     zcs.append(z_calibrated.detach_())
 
     endtime = time.time()
-    print("{}, remaing time: {:.2f} h".format(i, (len(train_loader) - i)*(endtime - start_time)/3600))
-xs = torch.stack(xs)
-ys = torch.cat(ys)
-y_zs = torch.cat(y_zs)
-zs = torch.stack(zs)
-zcs = torch.stack(zcs)
-torch.save(xs, "output/learning_from_ce/xs.pt")
-torch.save(ys, "output/learning_from_ce/ys.pt")
-torch.save(y_zs, "output/learning_from_ce/y_zs.pt")
-torch.save(zs, "output/learning_from_ce/zs.pt")
-torch.save(zcs, "output/learning_from_ce/zcs.pt")
+    print("{}/{}, remaing time: {:.2f} h".format(i+1, len(train_loader), (len(train_loader) - i)*(endtime - start_time)/3600))
+# xs = torch.stack(xs)
+# ys = torch.cat(ys)
+# y_zs = torch.cat(y_zs)
+# zs = torch.stack(zs)
+# zcs = torch.stack(zcs)
+torch.save(xs, "output/learning_from_fl/xs.pt")
+torch.save(ys, "output/learning_from_fl/ys.pt")
+torch.save(y_zs, "output/learning_from_fl/y_zs.pt")
+torch.save(zs, "output/learning_from_fl/zs.pt")
+torch.save(zcs, "output/learning_from_fl/zcs.pt")
 
 

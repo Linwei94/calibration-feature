@@ -16,8 +16,8 @@ from torch.utils.data.sampler import SubsetRandomSampler
 class CIFAR10_CALIBRATION(datasets.CIFAR10):
     def __init__(self, root, train=True, transform=None, target_transform=None, download=False):
         super(CIFAR10_CALIBRATION, self).__init__(root, train=train, transform=transform, target_transform=target_transform, download=download)
-        self.zcs = torch.load('output/zcs.pt').cpu().numpy()
-        self.ys = torch.load('output/ys.pt').cpu().numpy()
+        self.zcs = torch.cat(torch.load('output/learning_from_fl/zcs.pt')).cpu().numpy()
+        self.ys = torch.cat(torch.load('output/learning_from_fl/ys.pt')).cpu().numpy()
 
     def __getitem__(self, index):
         zc = self.zcs[index]

@@ -39,28 +39,29 @@ pretrained_weights = {"ce":"weights/cifar10/resnet50_cross_entropy_350.model",
                         "resnet18_basic":"weights/cifar10/basic_training",}
 key = "fl"
 # generate z_calibrated
-def calibrate_feature(model, z, x_feature, eps=0.5, alpha=0.5/5, iters=7):
-    z = z.to(device)
-    x_feature = x_feature.detach().to(device)
+def calibrate_feature(model, x, goal_feature, alpha=0.5/5, n_iters=7):
+    x = x.to(device)
+    x.requires_grad = True
+    goal_feature = goal_feature.detach().to(device)
+    delta = torch.zeros_like(x)
+    delta.requires_grad = False
     for i in range(n_iters):
-        z.requires_grad = True
-        logit, z_feature = model(z)
+        _, x_feature = model(x + delta, return_feature=True)
         model.zero_grad()
-        z.grad = None
+        x.grad = None
 
-        cost = torch.norm(z_feature - x_feature)
+        cost = torch.norm(x_feature - goal_feature)
         cost.backward()
         
         
-        norm_grad = z.grad / (torch.norm(z.grad) + 1e-10)
-        adv_z = z - alpha*norm_grad
-        
-        # adv_z = z - alpha*z.grad.sign()
-
-        z = torch.clamp(adv_z, min=0, max=1).detach_()
+        norm_grad = torch.norm(x.grad)
+        delta = delta - alpha*x.grad / (norm_grad + 1e-10) # normalized gradient step
+        # clip X+delta to [0,1]
+        delta = torch.clamp(delta, -x, 1-x).detach_()
         if i % 100 == 0:
             print(f'Iter {i}, cost: {cost.item()}')
-    return z
+    return x + delta
+
 
 
 def single_pgd_step_robust(model, rand_sample, robust_feature, alpha, delta):
@@ -139,8 +140,8 @@ for (x,y) in train_loader:
     
     z = z.unsqueeze(0).to(device)
     x = x.to(device)
-    logitm, x_feature = model(x)
-    z_calibrated = calibrate_feature(model, z, x_feature, n_iters)
+    logit, x_feature = model(x, return_feature=True)
+    z_calibrated = calibrate_feature(model, z, x_feature, n_iters=n_iters)
     # learned_delta = pgd_l2_robust(model, z, x_feature, alpha=0.1, num_iter=n_iters)
     # z_calibrated = z + learned_delta
 
